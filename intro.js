@@ -1,7 +1,7 @@
 // Two Soon: Samantha Ngo and Taylor Wong
 // SoftDev1 pd7
-// HW16 --
-// 2017-12-08
+// HW16 -- Sequential Progression II: Electric Boogaloo
+// 2017-12-11
 
 var buttonCallBack = function(e){
   //get current length of list
@@ -27,18 +27,30 @@ var itemHover = function(){
   //change heading html to this html (which should be a list item)
   heading.innerHTML = this.innerHTML;
   console.log(heading);
+}
 
+var itemNotHover = function() {
+  //get heading
+  var heading = document.getElementById('h');
+  console.log(heading);
+  //change back to Hello World!
+  heading.innerHTML = 'Hello World!';
+
+}
+
+var removeItem = function() {
+  this.remove();
 }
 
 var b = document.getElementById("b");
 console.log("b:", b);
 b.addEventListener('click', buttonCallBack);
 
-//make each item in the list active/responsive to the events
 var listItems = document.getElementsByTagName('li');
 console.log(listItems);
-
+//make each item in the list active/responsive to the events
 for (var i = 0; i < listItems.length; i += 1) {
   listItems[i].addEventListener('mouseover', itemHover);
-
+  listItems[i].addEventListener('mouseout', itemNotHover);
+  listItems[i].addEventListener('click', removeItem);
 }
