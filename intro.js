@@ -77,18 +77,18 @@ activate();
 var fibCallBack = function(){
     //get current list
     var fiblist = document.getElementById('fiblist');
+    // Get list of li elements
     var numbers = fiblist.getElementsByTagName("li");
+    // Get number of elements
     var length = fiblist.getElementsByTagName("li").length + 1;
-    console.log("LAST NUM: ", numbers[3].strip("<li>").strip("</li>").strip());
     //create new list element
     var newElement = document.createElement('li');
-    console.log("LAST TWO: ", fiblist.getElementsByTagName("li"));
     if (length <= 3) {
 	var num = 1;
     } else {
-	var num = "x";
+	var num =  parseInt(numbers[numbers.length - 1].innerHTML) + parseInt(numbers[numbers.length -2].innerHTML);
+	console.log(num);
     }
-    console.log("LENGTH: ", length);
     newElement.innerHTML = num;
     fiblist.appendChild(newElement);
     console.log("NEW ELEMENT ADDED ", length);
