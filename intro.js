@@ -72,3 +72,32 @@ console.log("b:", b);
 b.addEventListener('click', buttonCallBack);
 // 2. Activate responses for each of the initial items in the list
 activate();
+
+// ---------------------------------------------------- FIBONACCI LIST
+var fibonacci = function(n) {
+    // for fibonacci(0)...
+    if (n == 0) {
+	return 0;
+    }
+    // for fibonacci(1) and fibonacci(2)...
+    else if (n <= 2){
+	return 1;
+    }
+    // for fibonacci(n)...
+    else {
+	return fibonacci(n - 1) + fibonacci(n - 2);
+    }
+}
+
+var fibCallBack = function(){
+    //get current list
+    var fiblist = document.getElementById('fiblist');
+    //create new list element
+    var newElement = document.createElement('li');
+    fiblist.appendChild(newElement);
+    console.log("NEW ELEMENT ADDED");
+}
+
+var f = document.getElementById("fiblist");
+console.log("f: ", f);
+f.addEventListener('click', fibCallBack);
